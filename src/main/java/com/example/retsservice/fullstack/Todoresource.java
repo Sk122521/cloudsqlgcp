@@ -22,12 +22,12 @@ public class Todoresource {
     @Autowired
 	private TodoHardcodedService todoservice;
 	
-    @GetMapping("/users/{username}/todos")
+    @GetMapping(value="/users/{username}/todos")
 	public List<Todo> getAllTodos(@PathVariable String username){
 	  return todoservice.findAll();	
 	}
     
-    @DeleteMapping("users/{username}/todos/{id}")
+    @DeleteMapping(value="users/{username}/todos/{id}")
     public ResponseEntity<Void> deleteTodo(@PathVariable String username, @PathVariable long id){
     Todo todo = todoservice.deleteById(id);
     if(todo != null) {
